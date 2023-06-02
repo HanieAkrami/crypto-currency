@@ -13,8 +13,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_quit_clicked()
 {
-
 }

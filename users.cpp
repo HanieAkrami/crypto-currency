@@ -4,3 +4,7 @@ users::users()
 {
 
 }
+
+users::func1(){
+
+}
