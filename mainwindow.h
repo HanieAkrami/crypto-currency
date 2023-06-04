@@ -1,8 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <signin.h>
+#include <login.h>
+
+#include <QMainWindow>
+
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -23,16 +26,13 @@ public:
 
 private slots:
     void on_quit_clicked();
-
     void on_signup_clicked();
-    
-    void on_stackedWidget_currentChanged(int arg1);
-
     void on_actionQuit_triggered();
-
+    void on_login_clicked();
 
 private:
     Ui::MainWindow *ui;
     SignIn signin;
+    Login login;
 };
 #endif // MAINWINDOW_H

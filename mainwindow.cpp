@@ -6,7 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setCentralWidget(ui->stackedWidget);
     ui->stackedWidget->insertWidget(1,&signin);
+    ui->stackedWidget->insertWidget(2,&login);
 }
 
 MainWindow::~MainWindow()
@@ -24,12 +26,13 @@ void MainWindow::on_signup_clicked()
    ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_stackedWidget_currentChanged(int arg1)
-{
-
-}
 
 void MainWindow::on_actionQuit_triggered()
 {
     this->close();
+}
+
+void MainWindow::on_login_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
 }
