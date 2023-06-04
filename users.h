@@ -5,7 +5,7 @@ class users
 {
 public:
     users();
-    void func1();
+    
 private:
 
 };
