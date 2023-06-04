@@ -1,5 +1,8 @@
 # crypto-currency
 the advenced programming project of the second semester
-#rules
+# rules
 functions and methods => snacke_case
-variables name => Camel_Case
+
+variables name => camelCase
+
+class name => Upper first letter -> like Database
