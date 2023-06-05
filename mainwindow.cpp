@@ -7,8 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setCentralWidget(ui->stackedWidget);
+
     ui->stackedWidget->insertWidget(1,&signin);
     ui->stackedWidget->insertWidget(2,&login);
+
+    connect(&signin , SIGNAL(homeClicked()) ,this, SLOT(moveHome()));
+    connect(&login , SIGNAL(homeClicked()) ,this, SLOT(moveHome()));
 }
 
 MainWindow::~MainWindow()
@@ -35,4 +39,19 @@ void MainWindow::on_actionQuit_triggered()
 void MainWindow::on_login_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::moveHome()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_actionNewFile_triggered()
+{
+    signin.URL = QFileDialog::getSaveFileName(this,"Save as");
+}
+
+void MainWindow::on_actionOpenFile_triggered()
+{
+    signin.URL = QFileDialog::getOpenFileName(this,"Open file");
 }

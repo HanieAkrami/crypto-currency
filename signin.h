@@ -19,13 +19,19 @@ class SignIn : public QDialog
 public:
     explicit SignIn(QWidget *parent = nullptr);
     ~SignIn();
-
+    QString URL = "";
 private slots:
     void on_submit_clicked();
+
+    void on_back_clicked();
 
 private:
     Ui::SignIn *ui;
     QString currentDir = "";
+
+
+signals:
+    void homeClicked();
 };
 
 #endif // SIGNIN_H

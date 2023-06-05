@@ -1,6 +1,7 @@
 #include "signin.h"
 #include "ui_signin.h"
 
+
 SignIn::SignIn(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignIn)
@@ -26,15 +27,23 @@ void SignIn::on_submit_clicked()
 //    QMessageBox::question(this,"Info","name : "+name+"\nemail:"+email+
 //                          "\npasswd :"+passwd);
 
-    QString url =  QFileDialog::getOpenFileName(this,"Open ...");
-    QFile file(url);
-    if(file.open(QIODevice::WriteOnly)){
-        QTextStream stream(&file);
-        stream << name << "," << email << "," <<passwd<<endl;
-    }else{
-        QString url =  QFileDialog::getSaveFileName(this,"Save as");
-        QTextStream stream(&file);
-        stream << name << "," << email << "," <<passwd<<endl;
-    }
+    //QString url =  QFileDialog::getOpenFileName(this,"Open ...");
 
+    if(URL == ""){
+        QMessageBox::warning(this,"Not Found","file for save dont exist.");
+    }
+    QFile file(URL);
+    if(file.open(QIODevice::Append)){
+        QTextStream stream(&file);
+        stream << name << "," << email << "," <<passwd<<endl;
+        QMessageBox::about(this,"SignIn",name+" Dear signin sucssesfully. ");
+        ui->nameIn->clear();
+        ui->emailIn->clear();
+        ui->passwordIn->clear();
+    }
+}
+
+void SignIn::on_back_clicked()
+{
+    emit homeClicked();
 }

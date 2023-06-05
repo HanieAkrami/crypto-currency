@@ -17,3 +17,13 @@ void Login::on_back_clicked()
 {
     emit homeClicked();
 }
+
+void Login::on_submit_clicked()
+{
+    QString name = ui->nameIn->text();
+    QString email = ui->emailIn->text();
+    QString passwd = ui->passwordIn->text();
+    
+    
+    
+}

@@ -23,16 +23,20 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
 private slots:
     void on_quit_clicked();
     void on_signup_clicked();
     void on_actionQuit_triggered();
     void on_login_clicked();
+    void moveHome();
+    void on_actionNewFile_triggered();
+
+    void on_actionOpenFile_triggered();
 
 private:
     Ui::MainWindow *ui;
     SignIn signin;
     Login login;
+
 };
 #endif // MAINWINDOW_H
